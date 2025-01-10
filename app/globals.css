@@ -2,21 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* we have root selector this is where we typically define custom properties like foreground, rgb and so on */
+
 :root {
-  --background: #ffffff;
   --foreground: #171717;
 }
 
+/* then we have media prefer color scheme dark with css future which is relatively new we can detect if the user is in dark mode or not, if so u can see that
+value of this custom properties is over written */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
 
+/* down here u can se that we have use the value of the custom properties as the color of the body element so we are not using background,foreground rgb */
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   padding: 1rem;
 }
+
+/* let's do some cleanup by deleting few lines */
