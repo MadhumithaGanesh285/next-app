@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import cookies from 'js-cookie';
 
 interface User {
   id: number;
@@ -9,7 +10,7 @@ interface User {
 const UserPage = async() => {
   //DISABLING CACHE 
   const res = await fetch('https://jsonplaceholder.typicode.com/users', {cache: 'no-store'})
-
+  
   //KEEP DATA FRESH FOR CERTAIN PERIOD, THIS MEANS GET DATA FROM BACKEND EVERY 10 SEC
   // const res = await fetch('https://jsonplaceholder.typicode.com/users', {next : {revalidate: 10}});
   const user: User[] = await res.json()
@@ -31,7 +32,7 @@ const UserPage = async() => {
       <tbody>
         {user.map(user => 
         <tr key={user.id}>
-          <td>
+          <td >
             {user.name}
           </td>
           <td>
